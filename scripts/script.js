@@ -72,13 +72,9 @@ function makeCalendar() {
                               for (g = 0; g < innerFixed.length; g++) {
                                    var splitColon = innerFixed[g].split(":");
                                    splitColon[0] = parseInt(splitColon[0]);
-                                   if (splitColon[0] >= 12) {
-                                        if (splitColon[0] == 12) {
-                                             innerFixed[g] = splitColon[0] + ":" + splitColon[1] + "PM";
-                                        } else {
-                                             splitColon[0] = Math.abs(12 - splitColon[0]);
-                                             innerFixed[g] = splitColon[0] + ":" + splitColon[1] + "PM";
-                                        }
+                                   if (splitColon[0] > 12) {
+                                        splitColon[0] = Math.abs(12 - splitColon[0]);
+                                        innerFixed[g] = splitColon[0] + ":" + splitColon[1] + "PM";
                                    } else {
                                         innerFixed[g] = splitColon[0] + ":" + splitColon[1] + "AM";
                                    }
@@ -202,7 +198,7 @@ function swipeRight() {
                               for (g = 0; g < innerFixed.length; g++) {
                                    var splitColon = innerFixed[g].split(":");
                                    splitColon[0] = parseInt(splitColon[0]);
-                                   if (splitColon[0] >= 12) {
+                                   if (splitColon[0] > 12) {
                                         splitColon[0] = Math.abs(12 - splitColon[0]);
                                         innerFixed[g] = splitColon[0] + ":" + splitColon[1] + "PM";
                                    } else {

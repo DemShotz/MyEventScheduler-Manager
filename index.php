@@ -47,7 +47,7 @@ ob_start();
      </head>
      <body>
 
-     <?php //if (isset($_COOKIE["_welcome"])) : ?>
+     <?php if (isset($_COOKIE["_welcome"])) : ?>
      <div id="header">
           <h1 id="date"></h1>
           <a onclick="resetMenu()" href="#" id="dropdownList">Menu</a>
@@ -164,19 +164,7 @@ ob_start();
           makeCalendar();
      </script>
 
-     <script>
-          if ('serviceWorker' in navigator) {
-               window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                         // Registration was successful
-                    }, function(err) {
-                         // registration failed :(
-                    });
-               });
-          }
-     </script>
-
-     <?php //else : ?> <!--
+     <?php else : ?>
 
           <div id="header">
                <h1>Welcome!</h1>
@@ -188,23 +176,23 @@ ob_start();
                <p class="params">Second: Create a job from the manage jobs tab on the top of the screen.</p>
                <p class="params">Third: Click on the date you want to set an event for and fill out all the requested information.</p>
                <p class="params" style="margin-top: 1em; text-decoration: underline;"><a href="index.php">Click here to enter!</a></p>
-          </div> -->
+          </div>
 
-          <?php //setcookie("_welcome", "content", time() + (10 * 365 * 24 * 60 * 60)); ?>
+          <?php setcookie("_welcome", "content", time() + (10 * 365 * 24 * 60 * 60)); ?>
 
-          <!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- potato-ad -->
-          <!-- <ins class="adsbygoogle"
+          <ins class="adsbygoogle"
                style="display:block"
                data-ad-client="ca-pub-6328554368230452"
                data-ad-slot="9947910128"
                data-ad-format="auto"></ins>
           <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
-          </script> -->
+          </script>
 
 
-     <?php //endif; ?>
+     <?php endif; ?>
 </body>
 </html>
-<?php //ob_end_flush(); ?>
+<?php ob_end_flush(); ?>

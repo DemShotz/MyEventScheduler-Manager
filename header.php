@@ -3,7 +3,6 @@
           <link rel="alternate" href="myeventscheduler.com" hreflang="en-ca">
           <link rel="stylesheet" href="css/styles.css">
           <link rel="icon" href="favicon.png" sizes="any" type="image/png">
-          <link rel="manifest" href="manifest.json">
           <script type="text/Javascript" src="scripts/script.js"></script>
           <script type="text/JavaScript" src="scripts/sha512.js"></script>
           <script type="text/JavaScript" src="scripts/forms.js"></script>

@@ -300,23 +300,20 @@ a#swipeLeft {
 /* 161.84 */
 
 .delete-button {
-	text-decoration: none;
 	color: red;
 	margin-right: 20%;
+	text-decoration: underline;
 	display: inline-block;
 	float: left;
 	width: 30%;
 }
 .edit-button {
-	text-decoration: none;
 	color: yellow;
 	margin-left: 20%;
+	text-decoration: underline;
 	display: inline-block;
 	float: left;
 	width: 30%;
-}
-.delete-button:hover, .edit-button:hover {
-	text-decoration: underline;
 }
 .delete-button:hover, .edit-button:hover {
 	cursor: pointer;
@@ -609,7 +606,7 @@ label {
 		background-color: gray!important;
 		color: black!important;
 	}
-	a#manageJobs, a#calculateHours, a#fixPref, a#contactAdmin {
+	a#manageJobs, a#calculateHours, a#fixPref {
 		line-height: 3.5em;
 	}
 	th {

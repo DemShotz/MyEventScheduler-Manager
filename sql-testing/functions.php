@@ -3,6 +3,7 @@ include_once "psl-config.php";
 
 function sec_session_start() {
      $session_name = "sec_session_id";
+     session_name($session_name);
 
      $secure = true;
      $httponly = true;
@@ -12,17 +13,13 @@ function sec_session_start() {
           exit();
      }
 
-     session_name($session_name);
+     $cookieParams = session_get_cookie_params();
+
+     session_set_cookie_params($cookieParams['lifetime'], $cookieParams["path"], $cookieParams["domain"]); // $secure, $httponly);
+
      session_start();
 
-     if(isset($_SESSION['remember']) && $_SESSION['remember'] == 1) {
-          ini_set('session.cookie_lifetime', 5184000);
-          $cookieParams = session_get_cookie_params();
-          session_set_cookie_params($cookieParams['lifetime'], $cookieParams["path"], $cookieParams["domain"]); //$secure, $httponly);
-     } else {
-          $cookieParams = session_get_cookie_params();
-          session_set_cookie_params($cookieParams['lifetime'], $cookieParams["path"], $cookieParams["domain"]); //$secure, $httponly);
-     }
+     if(isset($_SESSION['remember']) && $_SESSION['remember'] == 1) { session_set_cookie_params(60 * 60 * 24 * 60); }
 
      session_regenerate_id(true);
 }
@@ -30,7 +27,7 @@ function sec_session_start() {
 function login($email, $password, $mysqli) {
      // Using prepared statements means that SQL injection is not possible
 
-     if (isset($_POST['remember_me'])) {
+     if ($_POST['remember_me']) {
           $_SESSION['remember'] = $_POST['remember_me'];
      }
 
