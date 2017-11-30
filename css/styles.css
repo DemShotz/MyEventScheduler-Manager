@@ -32,7 +32,7 @@ body {
 }
 
 .bottom-nav {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 	background: #288feb;
@@ -166,7 +166,7 @@ table td > div {
 	height: 6em;
 	width: 100%;
 }
-a#manageJobs, a#calculateHours, a#fixPref, a#contactAdmin {
+a#manageJobs, a#calculateHours, a#fixPref, a#contactAdmin, a#managerMode {
 	display: inline-block;
 	text-align: center;
 	height: 50%;
@@ -191,6 +191,10 @@ a#calculateHours {
 }
 a#manageJobs {
 	border-width: 0 2px 0 0;
+}
+a#managerMode {
+	border-width: 4px 0 0 0;
+	width: 100%;
 }
 .job-list {
 	height: 11em;
@@ -626,4 +630,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 }
 input[type="color"]::-webkit-color-swatch {
 	border: none;
+}
+.manager {
+	height: 125px;
 }

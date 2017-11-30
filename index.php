@@ -34,6 +34,11 @@ if (isset($_SESSION['user_id'])) {
      } else {
           $unset = 0;
      }
+
+     $conn = "SELECT manager FROM members WHERE id='" . $_SESSION['user_id'] . "'";
+     $result = $mysqli->query($conn);
+     $manager = $result->fetch_assoc();
+     $manager = $manager['manager'];
 }
 
 ob_start();
@@ -57,6 +62,9 @@ ob_start();
           <a href="calculateHours.php" id="calculateHours">Calculate Hours</a>
           <a href="fixPref.php" id="fixPref">12/24 Hour Preference</a>
           <a href="contactAdmin.php" id="contactAdmin">Contact Website Creator</a>
+          <?php if ($manager == 1) : ?>
+          <a href="manager.php" id="managerMode">Manager Functions</a>
+          <?php endif; ?>
      </div>
      <div id="content">
           <div id="body">
